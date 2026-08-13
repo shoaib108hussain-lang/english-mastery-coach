@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>English Mastery Coach (Start → B2)</title>
+  <meta name="description" content="AI English Mastery Coach - 13 Parts, 100 Stages, 8 Integrated Skills, Speakometer British Accent Engine & Systematic Correction.">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#0f172a">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="apple-touch-icon" href="https://www.gstatic.com/labs-code/stitch/favicon-192x192.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Top Navigation Header -->
+  <nav class="navbar">
+    <div class="brand-title">
+      <span>🇬🇧</span> English Mastery Coach
+    </div>
+
+    <ul class="nav-links">
+      <li><a href="javascript:void(0)" class="nav-link active" data-tab="lesson">📖 8-Skill Lesson</a></li>
+      <li><a href="javascript:void(0)" class="nav-link" data-tab="accent">🎙️ Speakometer Accent</a></li>
+      <li><a href="javascript:void(0)" class="nav-link" data-tab="curriculum">🗺️ 100-Stage Roadmap</a></li>
+      <li><a href="javascript:void(0)" class="nav-link" data-tab="diagnostic">📝 Diagnostic Test</a></li>
+      <li><a href="javascript:void(0)" class="nav-link" data-tab="coach">💬 Chat with Coach</a></li>
+      <li><a href="javascript:void(0)" class="nav-link" data-tab="progress">📊 Skill Analytics</a></li>
+    </ul>
+
+    <div class="header-stats">
+      <span class="stat-pill" id="stat-current-stage">Stage 1/100</span>
+      <span class="stat-pill" id="stat-level">A1 Baseline</span>
+      <span class="stat-pill" id="stat-streak">🔥 1 Day Streak</span>
+      <span class="stat-pill" id="stat-avg-skill">Mastery: 10%</span>
+    </div>
+  </nav>
+
+  <!-- Main View Container -->
+  <main class="main-wrapper">
+
+    <!-- Tab 1: 8-Skill Integrated Lesson Player -->
+    <section id="tab-lesson" class="tab-content active">
+      <div id="lesson-player-container">
+        <!-- Loaded dynamically by lesson.js -->
+      </div>
+    </section>
+
+    <!-- Tab 2: Speakometer-Style British Accent Engine -->
+    <section id="tab-accent" class="tab-content">
+      <div id="accent-trainer-container">
+        <!-- Loaded dynamically by app.js -->
+      </div>
+    </section>
+
+    <!-- Tab 3: 13-Part 100-Stage Curriculum Roadmap -->
+    <section id="tab-curriculum" class="tab-content">
+      <div id="curriculum-roadmap-container">
+        <!-- Loaded dynamically by app.js -->
+      </div>
+    </section>
+
+    <!-- Tab 4: Diagnostic Assessment Protocol ("START") -->
+    <section id="tab-diagnostic" class="tab-content">
+      <div id="diagnostic-quiz-container">
+        <!-- Loaded dynamically by app.js -->
+      </div>
+    </section>
+
+    <!-- Tab 5: Interactive AI Coach Dialogue Window -->
+    <section id="tab-coach" class="tab-content">
+      <div class="glass-card chat-window">
+        <div class="chat-header pb-3 mb-2 border-bottom">
+          <h2>💬 Conversational Practice with English Mastery Coach</h2>
+          <p class="text-muted">Speak or type freely. Receive immediate British English corrections and guidance.</p>
+        </div>
+
+        <div id="chat-messages" class="chat-messages-box">
+          <!-- Loaded dynamically by coach.js -->
+        </div>
+
+        <div class="chat-input-bar">
+          <input type="text" id="chat-input" class="form-control" placeholder="Type your English response or question here..." onkeypress="if(event.key === 'Enter') coachChat.sendMessage(this.value)">
+          <button class="btn btn-secondary" onclick="speechEngine.startListening((res) => { document.getElementById('chat-input').value = res.final || res.interim; })">
+            🎙️ Mic
+          </button>
+          <button class="btn btn-primary" onclick="coachChat.sendMessage(document.getElementById('chat-input').value)">
+            Send &rarr;
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tab 6: Learning Analytics & Progress Dashboard -->
+    <section id="tab-progress" class="tab-content">
+      <div id="progress-dashboard-container">
+        <!-- Loaded dynamically by app.js -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Application Scripts -->
+  <script src="js/curriculum.js"></script>
+  <script src="js/speech.js"></script>
+  <script src="js/diagnostic.js"></script>
+  <script src="js/correction.js"></script>
+  <script src="js/progress.js"></script>
+  <script src="js/accent-engine.js"></script>
+  <script src="js/lesson.js"></script>
+  <script src="js/coach.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
